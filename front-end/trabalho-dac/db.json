@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "cpf": "123.456.789-00",
+      "nome": "João Silva",
+      "email": "joao.silva@email.com",
+      "cep": "01010-000",
+      "rua": "Avenida Paulista",
+      "numero": "1000",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "id": "2",
+      "cpf": "987.654.321-00",
+      "nome": "Maria Oliveira",
+      "email": "maria.oliveira@email.com",
+      "cep": "20020-000",
+      "rua": "Rua das Flores",
+      "numero": "250",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ"
+    },
+    {
+      "id": "3",
+      "cpf": "456.789.123-00",
+      "nome": "Carlos Santos",
+      "email": "carlos.santos@email.com",
+      "cep": "30130-000",
+      "rua": "Rua da Liberdade",
+      "numero": "500",
+      "cidade": "Belo Horizonte",
+      "estado": "MG"
+    },
+    {
+      "id": "c791",
+      "cpf": "88888888888",
+      "nome": "jose",
+      "email": "jose@gmail.com",
+      "cep": "83311000",
+      "rua": "",
+      "bairro": "",
+      "cidade": "",
+      "estado": "",
+      "numero": ""
+    },
+    {
+      "id": "0ad9",
+      "cpf": "88888888888",
+      "nome": "jose",
+      "email": "jose@gmail.com",
+      "cep": "83311000",
+      "rua": "Rua Bosque Centenário",
+      "bairro": "Planta Bosque Centenário",
+      "cidade": "Piraquara",
+      "estado": "PR",
+      "numero": "0"
+    },
+    {
+      "id": "a45d",
+      "cpf": "11111111111",
+      "nome": "Ana",
+      "email": "ana@gmail.com",
+      "cep": "83311000",
+      "rua": "Rua Bosque Centenário",
+      "bairro": "Planta Bosque Centenário",
+      "cidade": "Piraquara",
+      "estado": "PR",
+      "numero": "0"
+    },
+    {
+      "id": "66dc",
+      "cpf": "22222222222",
+      "nome": "Felipe",
+      "email": "felipe@gmail.com",
+      "cep": "83311000",
+      "rua": "Rua Bosque Centenário",
+      "bairro": "Planta Bosque Centenário",
+      "cidade": "Piraquara",
+      "estado": "PR",
+      "numero": "4"
+    }
+  ]
+}

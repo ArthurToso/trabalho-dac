@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:trabalho-dac": "node dist/trabalho-dac/server/server.mjs"
+    "serve:ssr:trabalho-dac": "node dist/trabalho-dac/server/server.mjs",
+    "server": "json-server --watch db.json --port 3000"
   },
   "private": true,
   "dependencies": {
@@ -15,13 +16,14 @@
     "@angular/common": "^17.3.0",
     "@angular/compiler": "^17.3.0",
     "@angular/core": "^17.3.0",
-    "@angular/forms": "^17.3.0",
+    "@angular/forms": "^17.3.12",
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/platform-server": "^17.3.0",
     "@angular/router": "^17.3.0",
     "@angular/ssr": "^17.3.13",
     "express": "^4.18.2",
+    "ngx-mask": "^19.0.6",
     "rxjs": "~7.8.0",
     "trabalho-dac": "file:",
     "tslib": "^2.3.0",
