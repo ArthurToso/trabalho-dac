@@ -13,4 +13,11 @@ import { CommonModule } from '@angular/common';
 export class LoginComponent {
   loginError: String = '';
   loginErrorConta: String = 'Não possui uma conta? Clique em "Criar conta" para se cadastrar.';
+
+  constructor(private router: Router) {}
+
+  navigateToSignup() {
+    this.router.navigate(['/signup']);
+  }
+
 }
