@@ -11,17 +11,14 @@
             <div>
                 <h2 class="text-2xl font-semibold text-center">Login</h2>
             </div>
-            <form class="w-full">
-                <input type="text" placeholder="Email" name="email" required
+            <form [formGroup]="loginForm"  class="w-full">
+                <input type="text" placeholder="Email" name="email" formControlName="email" required
                     class="border border-gray-300 p-3 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <div class="h-4"></div>
-                <input type="password" placeholder="Senha" name="password" required
+                <input type="password" placeholder="Senha" name="password" formControlName="password" required
                     class="border border-gray-300 p-3 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <div *ngIf="loginError" class="text-red-500 text-sm text-center mt-2">
-                    {{loginError}}
-                </div>
                 <div class="flex flex-col items-center mt-5 w-full gap-2">
-                    <button type="submit" class="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+                    <button (click)="submit()" type="submit" class="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
                         Entrar
                     </button>               
                 </div>
