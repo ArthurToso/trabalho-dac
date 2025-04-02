@@ -14,7 +14,7 @@ export class MenuClienteComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // Inicialização do array 'reservas'
+    
     this.reservas = [
       {
         id: 1,

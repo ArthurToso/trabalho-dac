@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule,
-            ReactiveFormsModule,    
+            ReactiveFormsModule,
           ],
   providers: [LoginService],
   templateUrl: './login.component.html',
