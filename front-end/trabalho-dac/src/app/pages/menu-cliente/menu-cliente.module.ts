@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';  // Importando o CommonModule
 import { MenuClienteComponent } from './menu-cliente.component';
 
 @NgModule({
   declarations: [
-    MenuClienteComponent // Declare o componente aqui
+    MenuClienteComponent  // Declarando o componente
   ],
   imports: [
-    CommonModule // Necessário para *ngFor e *ngIf
+    CommonModule  // Importando o CommonModule, necessário para *ngFor e *ngIf
   ],
   exports: [
-    MenuClienteComponent // Exporte o componente para usá-lo em outros módulos
+    MenuClienteComponent  // Expondo o componente para outros módulos, se necessário
   ]
 })
 export class MenuClienteModule { }

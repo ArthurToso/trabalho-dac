@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuClienteModule } from './pages/menu-cliente/menu-cliente.module'; // Importe o módulo
+import { MenuClienteModule } from './pages/menu-cliente/menu-cliente.module';
+import { MenuFuncModule } from './pages/menu-func/menu-func.module'; // Importe o MenuFuncModule
 
 @NgModule({
   declarations: [
-    AppComponent // Componente principal
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    MenuClienteModule // Importe o MenuClienteModule aqui
+    MenuClienteModule,  // Adicionei MenuClienteModule para o menu do cliente
+    MenuFuncModule      // Adicionei MenuFuncModule para o menu do funcionário
   ],
   providers: [],
   bootstrap: [AppComponent]
