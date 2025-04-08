@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ModalReservaComponent } from '../modal-reserva/modal-reserva.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-menu-cliente',
@@ -8,8 +9,7 @@ import { ModalReservaComponent } from '../modal-reserva/modal-reserva.component'
   templateUrl: './menu-cliente.component.html',
   styleUrls: ['./menu-cliente.component.css'],
   imports: [
-    CommonModule,
-    ModalReservaComponent, // importe aqui o modal!
+    CommonModule, // importe aqui o modal!
   ],
 })
 export class MenuClienteComponent implements OnInit {
@@ -19,9 +19,9 @@ export class MenuClienteComponent implements OnInit {
   isMenuOpen: boolean = false; // Estado do menu responsivo
 
   reservaSelecionada: any = null;
-  modalAberto = false;
-
-  constructor() {}
+  
+  //para usar a biblioteca de modal
+  constructor(private modalService : NgbModal) {}
 
   ngOnInit(): void {
     // Inicialização do array 'reservas'
@@ -69,11 +69,12 @@ export class MenuClienteComponent implements OnInit {
   }
 
   abrirModal(reserva: any) {
-    this.reservaSelecionada = reserva;
-    this.modalAberto = true;
+      const modalRef= this.modalService.open(ModalReservaComponent);
+      modalRef.componentInstance.reserva= reserva;
+      
   }
 
   fecharModal() {
-    this.modalAberto = false;
+    
   }
 }

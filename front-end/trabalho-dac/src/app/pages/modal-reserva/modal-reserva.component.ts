@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @Component({
   selector: 'app-modal-reserva',
@@ -10,11 +13,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ModalReservaComponent {
   @Input() reserva: any;
-  @Input() visible = false;
-  @Output() fecharModal = new EventEmitter<void>();
 
-  fechar() {
-    this.fecharModal.emit();
-  }
+ constructor(public activeModal: NgbActiveModal) {}
 
 }
