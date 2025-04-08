@@ -31,7 +31,7 @@ export class MenuClienteComponent implements OnInit {
         dataHora: '2025-03-26 14:00',
         origem: 'Aeroporto Internacional de São Paulo',
         destino: 'Aeroporto Internacional do Rio de Janeiro',
-        status: 'Reservado',
+        status: 'CRIADA',
       },
       {
         id: 2,
