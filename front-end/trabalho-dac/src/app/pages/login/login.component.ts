@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
@@ -29,11 +29,22 @@ export class LoginComponent {
     });
   }
 
-  submit(){
+  submit() {
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-      next: () => this.toastService.success("Login realizado com sucesso!"),
+      next: (response) => {
+        this.toastService.success("Login realizado com sucesso!");
+
+        // Verifica o tipo de usuário e redireciona
+        if (response.userType === 'func') {
+          this.router.navigate(['/menu-func']); // Redireciona para o menu de funcionário
+        } else if (response.userType === 'client') {
+          this.router.navigate(['/menu-client']); // Redireciona para o menu de cliente
+        } else {
+          this.toastService.error("Tipo de usuário desconhecido!");
+        }
+      },
       error: () => this.toastService.error("Erro ao realizar login! Tente novamente.")
-    })
+    });
   }
 
 
