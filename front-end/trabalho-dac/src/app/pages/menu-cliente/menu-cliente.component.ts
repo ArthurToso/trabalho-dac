@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ModalReservaComponent } from '../modal-reserva/modal-reserva.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalCancelarComponent } from '../modal-cancelar/modal-cancelar.component';
 
 @Component({
   selector: 'app-menu-cliente',
@@ -55,21 +56,25 @@ export class MenuClienteComponent implements OnInit {
     // Implementar lógica para visualizar reserva (R04)
     const reserva = this.reservas.find((r) => r.id === id);
     if (reserva) {
-      this.abrirModal(reserva);
+      this.abrirModal(reserva, ModalReservaComponent);
     }
   }
 
   cancelarReserva(id: number): void {
     console.log('Cancelar reserva:', id);
     // Implementar lógica para cancelar reserva (R08)
+    const reserva = this.reservas.find((r) => r.id === id);
+    if (reserva) {
+      this.abrirModal(reserva, ModalCancelarComponent);
+    }
   }
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen; // Alterna o estado do menu
   }
 
-  abrirModal(reserva: any) {
-      const modalRef= this.modalService.open(ModalReservaComponent);
+  abrirModal(reserva: any, componentModal : any) {
+      const modalRef= this.modalService.open(componentModal);
       modalRef.componentInstance.reserva= reserva;
       
   }
