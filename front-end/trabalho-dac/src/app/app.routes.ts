@@ -5,17 +5,10 @@ import { MenuClienteComponent } from './pages/menu-cliente/menu-cliente.componen
 import { MenuFuncionarioComponent } from './pages/menu-funcionario/menu-funcionario.component';
 
 export const routes: Routes = [
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: '', redirectTo: '/login', pathMatch: 'full'
-  },
-  {
-    path: 'signup',
-    component: CadastroComponent
-  },
+  { path: '', redirectTo: '/signup', pathMatch: 'full' },
+  { path: '**', redirectTo: '/signup', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: CadastroComponent },
   { path: 'menu-cliente', component: MenuClienteComponent },
   {
     path: 'menu-funcionario',
