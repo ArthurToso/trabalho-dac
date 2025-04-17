@@ -1,15 +1,13 @@
-package dac.login.demo;
+package exemplo1.microsservicos.consumidor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LoginApplication {
+public class ConsumidorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LoginApplication.class, args);
+		SpringApplication.run(ConsumidorApplication.class, args);
 	}
-
-
 
 }
