@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { CadastroComponent } from './pages/cadastro/cadastro.component';
-import { MenuClienteComponent } from './pages/menu-cliente/menu-cliente.component';
+import { LoginComponent } from './pages/compartilhada/login/login.component';
+import { CadastroComponent } from './pages/compartilhada/cadastro/cadastro.component';
+import { MenuClienteComponent } from './pages/cliente/menu-cliente/menu-cliente.component';
 
 import { ListarFuncionarioComponent } from './pages/funcionario/listar-funcionario/listar-funcionario.component';
 import { InserirEditarFuncionarioComponent } from './pages/funcionario/inserir-editar-funcionario/inserir-editar-funcionario.component';

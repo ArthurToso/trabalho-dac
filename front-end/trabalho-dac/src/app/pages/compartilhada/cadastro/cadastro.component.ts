@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CepService } from '../../services/cep.service';
+import { CepService } from '../../../services/cep.service';
 import { HttpClient } from '@angular/common/http';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { Observable } from 'rxjs';
