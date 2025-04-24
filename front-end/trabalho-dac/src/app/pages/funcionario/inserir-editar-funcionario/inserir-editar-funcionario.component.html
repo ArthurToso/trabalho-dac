@@ -1,0 +1,73 @@
+<div class="grid mx-[20%]">
+    <form #formFunc="ngForm" class="space-y-5 my-8">
+      <div>
+        <label for="nome" class="text-sm font-medium text-gray-700 pr-4">Nome:</label>
+        <input  class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" type="text" id="nome" name="nome" minlength="2" required
+        
+        [(ngModel)]="usuario.nome"
+        #nome="ngModel" />
+        <div class="bg-red-300"
+        *ngIf="nome.errors && (nome.dirty || nome.touched)"
+        >
+          <div [hidden]="!nome.errors['required']">Digite o nome do funcionario.</div>
+          <div [hidden]="!nome.errors['minlength']">O nome deve conter ao menos 2 caracteres.</div>
+        </div>
+      </div>
+      <div>
+        <label for="tel" class="text-sm font-medium text-gray-700 pr-4">Telefone:</label>
+        <input  class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"type="text" id="idade" name="idade" required 
+        [(ngModel)]="usuario.telefone"
+        #tel="ngModel"/>
+        <div 
+        *ngIf="tel.errors && (tel.dirty || tel.touched)"
+        class="bg-red-300">
+          <div [hidden]="!tel.errors['required']">Digite tel da pessoa.</div>
+        </div>
+      </div>
+  
+      <div>
+        <label for="cpf" class="text-sm font-medium text-gray-700 pr-4">CPF:</label>
+        <input class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"type="text" id="data" name="data" required 
+        
+        [(ngModel)]="usuario.cpf"
+        #data="ngModel"/>
+        <div 
+        *ngIf="data.errors && (data.dirty || data.touched)"
+        class="bg-red-300">
+          <div [hidden]="!data.errors['required']">Digite o cpf.</div>
+        </div>
+      </div>
+      <div>
+
+        <div>
+          <label for="email" class="text-sm font-medium text-gray-700 pr-4">E-mail:</label>
+          <input class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none" id="data" name="data" required 
+          
+          [(ngModel)]="usuario.email"
+          #data="ngModel"/>
+          <div 
+          *ngIf="data.errors && (data.dirty || data.touched)"
+          class="bg-red-300">
+            <div [hidden]="!data.errors['required']">Digite o cpf.</div>
+          </div>
+        </div>
+      
+        
+      <div class="grid grid-cols-2 gap-2">
+  
+        <button type="button"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl transition duration-200"
+        (click)="salvar()"
+        [disabled]="!formFunc.form.valid"
+        
+        ><i aria-hidden="true"
+        >
+      </i> Salvar</button>
+      <a [routerLink]="['/funcionario/listar']"
+      class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-xl transition duration-200 text-center"> <i aria-hidden="true"></i> Voltar </a>
+    </div>
+      </div>
+    </form>
+  </div>
+  
+
