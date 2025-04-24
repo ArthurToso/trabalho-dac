@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { ReservaService } from '../../services/reserva.service';
+import { ReservaService } from '../../../services/reserva.service';
+import { HeaderFuncionarioComponent } from "../header-funcionario/header-funcionario.component";
+
 
 @Component({
   selector: 'app-menu-funcionario',
   standalone: true,
-  imports: [],
+  imports: [HeaderFuncionarioComponent],
   templateUrl: './menu-funcionario.component.html',
   styleUrl: './menu-funcionario.component.css',
 })

@@ -1,0 +1,54 @@
+<header class="bg-blue-950">
+  <nav class=" flex ml-6 py-10" aria-label="Global">
+    <div class="flex lg:flex-1 text-white text-xl">
+      
+      <h1>Bem vindo, {{nomeFuncionario}}</h1>
+    </div>4
+
+    <div class="flex items-center px-4 gap-2">
+
+      <a
+        [routerLink]="['/menu-funcionario']"
+        class="block px-4 py-2 text-sm text-white 
+        bg-gray-500 border rounded-md hover:bg-gray-700 
+        "
+      >
+        Voos Programados 
+      </a>
+      <a
+        [routerLink]="['/funcionario/listar']"
+        class="block px-4 py-2 text-sm text-white 
+        bg-gray-500 border rounded-md hover:bg-gray-700 
+        "
+      >
+        Listar Funcionários
+      </a>
+      <a
+        [routerLink]="['/funcionario/novo']"
+        class="block px-4 py-2 text-sm text-white 
+        bg-gray-500 border rounded-md hover:bg-gray-700 
+        "
+      >
+        Cadastrar Funcionário
+      </a>
+      
+
+      <a
+        [routerLink]="['/voo/novo']"
+        class="block px-4 py-2 text-sm text-white 
+        bg-gray-500 border rounded-md hover:bg-gray-700  
+        "
+      >
+        Cadastrar Voo
+      </a>
+
+      <a [routerLink]="['/login']" target="_blank" rel="noopener noreferrer"
+      class="block px-4 py-2 text-sm text-white hover:bg-red-700
+      bg-red-500 border rounded-md ml-20">
+       
+          Logoff
+       
+      </a>
+    </div>
+  </nav>
+</header>
