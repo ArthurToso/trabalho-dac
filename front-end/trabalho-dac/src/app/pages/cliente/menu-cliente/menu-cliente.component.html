@@ -1,159 +1,53 @@
-<div class="flex h-screen">
-  <!-- Menu lateral -->
-  <aside class="hidden md:block w-1/4 bg-gray-100 p-8">
-    <h2 class="text-xl font-bold mb-5 text-center">Menu</h2>
-    <div class="mb-8 text-left">
-      <p class="text-lg font-semibold text-center">
-        Saldo:
-        <span class="text-2xl font-bold text-blue-500">{{ user?.milhas }}</span>
-      </p>
-    </div>
-    <ul class="space-y-5">
-      <li class="flex justify-center">
-        <button
-          class="w-3/4 p-3 bg-green-600 rounded text-white hover:bg-green-700 transition"
-        >
-          Comprar Milhas
-        </button>
-      </li>
-      <li class="flex justify-center">
-        <button
-          class="w-3/4 p-3 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition"
-        >
-          Consultar Extrato de Milhas
-        </button>
-      </li>
-      <li class="flex justify-center">
-        <button
-          class="w-3/4 p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-        >
-          Efetuar Reserva
-        </button>
-      </li>
+<app-header-cliente></app-header-cliente>
 
-      <li class="flex justify-center">
-        <button
-          class="w-3/4 p-3 bg-slate-500 rounded text-white hover:bg-slate-600 transition"
-        >
-          Consultar Reserva (rf09)
-        </button>
-      </li>
-      <li class="flex justify-center">
-        <button
-          class="w-3/4 p-3 bg-orange-500 text-white rounded hover:bg-orange-600 transition"
-        >
-          Fazer Check-In
-        </button>
-      </li>
-    </ul>
-  </aside>
+<main class="flex-1 p-8">
 
-  <!-- Menu lateral responsivo (mobile) -->
-  <div class="md:hidden bg-gray-100 p-4">
-    <button
-      (click)="toggleMenu()"
-      class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-    >
-      Menu
-    </button>
-    <div [class.hidden]="!isMenuOpen" class="mt-4">
-      <h2 class="text-xl font-bold mb-5 text-center">Menu</h2>
-      <div class="mb-8 text-left">
-        <p class="text-lg font-semibold">
-          Saldo atual em milhas:
-          <span class="text-2xl font-bold text-blue-500">{{
-            user?.milhas
-          }}</span>
-        </p>
-      </div>
-      <ul class="space-y-5">
-        <li class="flex justify-center">
-          <button
-            class="w-3/4 p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-          >
-            Ver Reservas
-          </button>
-        </li>
-        <li class="flex justify-center">
-          <button
-            class="w-3/4 p-3 bg-red-500 text-white rounded hover:bg-red-600 transition"
-          >
-            Cancelar Reserva
-          </button>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <section class="mb-8 text-center">
+    <h2 class="text-xl font-semibold mb-3">Reservas e Voos</h2>
+    <table class="table-auto mx-auto border-collapse border border-gray-300">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border border-gray-300 p-2">Data/Hora</th>
+          <th class="border border-gray-300 p-2">Aeroporto Origem</th>
+          <th class="border border-gray-300 p-2">Aeroporto Destino</th>
+          <th class="border border-gray-300 p-2">Status</th>
+          <th class="border border-gray-300 p-2">Ações</th>
+        </tr>
+      </thead>
 
-  <!-- Conteúdo principal -->
-  <div class="flex-1 flex flex-col">
-    <!-- Barra superior -->
-    <header
-      class="flex items-center justify-between bg-blue-500 text-white p-4"
-    >
-      <div>
-        <h1 class="text-lg font-bold">Bem-vindo, {{user?.nome}}!</h1>
-      </div>
-      <div>
-        <img
-          src="/assets/img/user-avatar.png"
-          alt="Foto do Usuário"
-          class="w-12 h-12 rounded-full"
-        />
-      </div>
-    </header>
-
-    <!-- Conteúdo central -->
-    <main class="flex-1 p-8">
-      <section class="mb-8 text-center">
-        <h2 class="text-xl font-semibold mb-3">Reservas e Voos</h2>
-        <table
-          class="table-auto mx-auto border-collapse border border-gray-300"
-        >
-          <thead>
-            <tr class="bg-gray-100">
-              <th class="border border-gray-300 p-2">Data/Hora</th>
-              <th class="border border-gray-300 p-2">Aeroporto Origem</th>
-              <th class="border border-gray-300 p-2">Aeroporto Destino</th>
-              <th class="border border-gray-300 p-2">Status</th>
-              <th class="border border-gray-300 p-2">Ações</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr *ngFor="let reserva of reservas">
-              <td class="border border-gray-300 p-2">{{ reserva.dataHora }}</td>
-              <td class="border border-gray-300 p-2">{{ reserva.origem }}</td>
-              <td class="border border-gray-300 p-2">{{ reserva.destino }}</td>
-              <td class="border border-gray-300 p-2">{{ reserva.status }}</td>
-              <td class="border border-gray-300 p-2">
-                <div class="grid gap-2"
-                [ngClass]="{
+      <tbody>
+        <tr *ngFor="let reserva of reservas">
+          <td class="border border-gray-300 p-2">{{ reserva.dataHora }}</td>
+          <td class="border border-gray-300 p-2">{{ reserva.origem }}</td>
+          <td class="border border-gray-300 p-2">{{ reserva.destino }}</td>
+          <td class="border border-gray-300 p-2">{{ reserva.status }}</td>
+          <td class="border border-gray-300 p-2">
+            <div
+              class="grid gap-2"
+              [ngClass]="{
                   'grid-cols-2': reserva?.status === 'CRIADA' || reserva?.status === 'CHECK-IN',
                   
-                }" 
-
-                >
-                  <button
-                    class="p-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
-                    (click)="verReserva(reserva.id)"
-                  >
-                    Ver
-                  </button>
-                  <button
-                    *ngIf="reserva?.status === 'CRIADA' || reserva?.status === 'CHECK-IN'"
-                    class="p-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
-                    (click)="cancelarReserva(reserva.id)"
-                  >
-                    Cancelar
-                  </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-       
-      </section>
-    </main>
-  </div>
-</div>
+                }"
+            >
+              <button
+                class="p-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
+                (click)="verReserva(reserva.id)"
+              >
+                Ver
+              </button>
+              <button
+                *ngIf="
+                  reserva?.status === 'CRIADA' || reserva?.status === 'CHECK-IN'
+                "
+                class="p-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+                (click)="cancelarReserva(reserva.id)"
+              >
+                Cancelar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>

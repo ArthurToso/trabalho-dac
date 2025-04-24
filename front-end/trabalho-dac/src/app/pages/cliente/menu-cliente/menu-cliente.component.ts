@@ -8,6 +8,7 @@ import { ReservaService } from '../../../services/reserva.service';
 import { UserService } from '../../../services/user.service';
 import { error } from 'console';
 import { User } from '../../../models/user';
+import { HeaderClienteComponent } from "../header-cliente/header-cliente.component";
 
 @Component({
   selector: 'app-menu-cliente',
@@ -15,8 +16,9 @@ import { User } from '../../../models/user';
   templateUrl: './menu-cliente.component.html',
   styleUrls: ['./menu-cliente.component.css'],
   imports: [
-    CommonModule, // importe aqui o modal!
-  ],
+    CommonModule,
+    HeaderClienteComponent
+],
 })
 export class MenuClienteComponent implements OnInit {
   
