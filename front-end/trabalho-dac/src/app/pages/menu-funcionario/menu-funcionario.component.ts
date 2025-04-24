@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ReservaService } from '../../services/reserva.service';
 
 @Component({
   selector: 'app-menu-funcionario',
@@ -11,31 +12,14 @@ export class MenuFuncionarioComponent {
   isMenuOpen: boolean = false; // Estado do menu responsiv
   reservas: any[] = []; // Declaração da propriedade 'reservas'
 
-  constructor() {
+  constructor(
+    private serviceReserva : ReservaService
+  ) {
     // Inicialização do array 'reservas'
-    this.reservas = [
-      {
-        id: 1,
-        dataHora: '2025-03-26 14:00',
-        origem: 'Aeroporto Internacional de São Paulo',
-        destino: 'Aeroporto Internacional do Rio de Janeiro',
-        status: 'Reservado',
-      },
-      {
-        id: 2,
-        dataHora: '2025-03-20 10:00',
-        origem: 'Aeroporto Internacional de Brasília',
-        destino: 'Aeroporto Internacional de Salvador',
-        status: 'Feito',
-      },
-      {
-        id: 3,
-        dataHora: '2025-03-15 08:00',
-        origem: 'Aeroporto Internacional de Recife',
-        destino: 'Aeroporto Internacional de Fortaleza',
-        status: 'Cancelado',
-      },
-    ];
+    this.serviceReserva.getReservas().subscribe(reservas =>{
+      this.reservas = reservas
+    });
+    
   }
 
   toggleMenu(): void {

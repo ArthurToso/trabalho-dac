@@ -1,7 +1,8 @@
+
 {
   "users": [
     {
-      "id": "1",
+      "id": 101,
       "cpf": "123.456.789-00",
       "nome": "João Silva",
       "email": "joao.silva@email.com",
@@ -9,10 +10,11 @@
       "rua": "Avenida Paulista",
       "numero": "1000",
       "cidade": "São Paulo",
-      "estado": "SP"
+      "estado": "SP",
+      "milhas": 120
     },
     {
-      "id": "2",
+      "id": 102,
       "cpf": "987.654.321-00",
       "nome": "Maria Oliveira",
       "email": "maria.oliveira@email.com",
@@ -20,10 +22,11 @@
       "rua": "Rua das Flores",
       "numero": "250",
       "cidade": "Rio de Janeiro",
-      "estado": "RJ"
+      "estado": "RJ",
+      "milhas": 90
     },
     {
-      "id": "3",
+      "id": 104,
       "cpf": "456.789.123-00",
       "nome": "Carlos Santos",
       "email": "carlos.santos@email.com",
@@ -31,55 +34,69 @@
       "rua": "Rua da Liberdade",
       "numero": "500",
       "cidade": "Belo Horizonte",
-      "estado": "MG"
+      "estado": "MG",
+      "milhas": 80
+    }
+  ],
+  "reservas": [
+    {
+      "id": 1,
+      "id_user": 101,
+      "codigo": "RES001",
+      "dataHora": "2025-03-26 14:00",
+      "origem": "Aeroporto Internacional de São Paulo",
+      "destino": "Aeroporto Internacional do Rio de Janeiro",
+      "valor": 350,
+      "milhas": 70,
+      "status": "CRIADA"
     },
     {
-      "id": "c791",
-      "cpf": "88888888888",
-      "nome": "jose",
-      "email": "jose@gmail.com",
-      "cep": "83311000",
-      "rua": "",
-      "bairro": "",
-      "cidade": "",
-      "estado": "",
-      "numero": ""
+      "id": 2,
+      "id_user": 102,
+      "codigo": "RES002",
+      "dataHora": "2025-03-20 10:00",
+      "origem": "Aeroporto Internacional de Brasília",
+      "destino": "Aeroporto Internacional de Salvador",
+      "valor": 450,
+      "milhas": 90,
+      "status": "REALIZADA"
     },
     {
-      "id": "0ad9",
-      "cpf": "88888888888",
-      "nome": "jose",
-      "email": "jose@gmail.com",
-      "cep": "83311000",
-      "rua": "Rua Bosque Centenário",
-      "bairro": "Planta Bosque Centenário",
-      "cidade": "Piraquara",
-      "estado": "PR",
-      "numero": "0"
+      "id": 3,
+      "id_user": 101,
+      "codigo": "RES003",
+      "dataHora": "2025-03-15 08:00",
+      "origem": "Aeroporto Internacional de Recife",
+      "destino": "Aeroporto Internacional de Fortaleza",
+      "valor": 300,
+      "milhas": 60,
+      "status": "CANCELADA",
+      "canceladaEm": "2025-03-14 18:00",
+      "milhasDevolvidas": 60
     },
     {
-      "id": "a45d",
-      "cpf": "11111111111",
-      "nome": "Ana",
-      "email": "ana@gmail.com",
-      "cep": "83311000",
-      "rua": "Rua Bosque Centenário",
-      "bairro": "Planta Bosque Centenário",
-      "cidade": "Piraquara",
-      "estado": "PR",
-      "numero": "0"
+      "id": 4,
+      "id_user": 104,
+      "codigo": "RES004",
+      "dataHora": "2025-03-28 16:30",
+      "origem": "Aeroporto Internacional de Belo Horizonte",
+      "destino": "Aeroporto Internacional de Curitiba",
+      "valor": 400,
+      "milhas": 80,
+      "status": "CHECK-IN"
     },
     {
-      "id": "66dc",
-      "cpf": "22222222222",
-      "nome": "Felipe",
-      "email": "felipe@gmail.com",
-      "cep": "83311000",
-      "rua": "Rua Bosque Centenário",
-      "bairro": "Planta Bosque Centenário",
-      "cidade": "Piraquara",
-      "estado": "PR",
-      "numero": "4"
+      "id": 5,
+      "id_user": 101,
+      "codigo": "RES005",
+      "dataHora": "2025-03-30 09:00",
+      "origem": "Aeroporto Internacional de Porto Alegre",
+      "destino": "Aeroporto Internacional de Florianópolis",
+      "valor": 250,
+      "milhas": 50,
+      "status": "CANCELADA VOO",
+      "canceladaEm": "2025-03-29 20:00",
+      "milhasDevolvidas": 50
     }
   ]
 }
