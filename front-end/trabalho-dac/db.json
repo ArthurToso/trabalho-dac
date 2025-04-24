@@ -1,4 +1,3 @@
-
 {
   "users": [
     {
@@ -97,6 +96,16 @@
       "status": "CANCELADA VOO",
       "canceladaEm": "2025-03-29 20:00",
       "milhasDevolvidas": 50
+    }
+  ],
+  "funcionario": [
+    {
+      "id": "1745463070735",
+      "nome": "Alires Domenique Rosa",
+      "cpf": "1111111111111111",
+      "email": "aliresrosa@gmail.com",
+      "telefone": "41997140543",
+      "ativo": false
     }
   ]
 }
