@@ -24,10 +24,9 @@ export class MenuClienteComponent implements OnInit {
   
   reservas: Reserva[] = []; // Declaração da propriedade 'reservas'
 
-  user!: User; //saldoMilhas obter do user
+  user : User = new User();
   
   id_user = 101; //trocar quando tiver autenticacao
-  isMenuOpen: boolean = false; // Estado do menu responsivo
 
   reservaSelecionada: any = null;
 
@@ -61,10 +60,6 @@ export class MenuClienteComponent implements OnInit {
     if (reserva) {
       this.abrirModal(reserva, ModalCancelarComponent);
     }
-  }
-
-  toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen; // Alterna o estado do menu
   }
 
   abrirModal(reserva: any, componentModal: any) {

@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 101,
+      "id": "101",
       "cpf": "123.456.789-00",
       "nome": "João Silva",
       "email": "joao.silva@email.com",
@@ -10,10 +10,10 @@
       "numero": "1000",
       "cidade": "São Paulo",
       "estado": "SP",
-      "milhas": 120
+      "milhas": 140
     },
     {
-      "id": 102,
+      "id": "102",
       "cpf": "987.654.321-00",
       "nome": "Maria Oliveira",
       "email": "maria.oliveira@email.com",
@@ -25,7 +25,7 @@
       "milhas": 90
     },
     {
-      "id": 104,
+      "id": "104",
       "cpf": "456.789.123-00",
       "nome": "Carlos Santos",
       "email": "carlos.santos@email.com",
@@ -39,7 +39,7 @@
   ],
   "reservas": [
     {
-      "id": 1,
+      "id": "1",
       "id_user": 101,
       "codigo": "RES001",
       "dataHora": "2025-03-26 14:00",
@@ -47,10 +47,10 @@
       "destino": "Aeroporto Internacional do Rio de Janeiro",
       "valor": 350,
       "milhas": 70,
-      "status": "CRIADA"
+      "status": "CANCELADA"
     },
     {
-      "id": 2,
+      "id": "2",
       "id_user": 102,
       "codigo": "RES002",
       "dataHora": "2025-03-20 10:00",
@@ -61,7 +61,7 @@
       "status": "REALIZADA"
     },
     {
-      "id": 3,
+      "id": "3",
       "id_user": 101,
       "codigo": "RES003",
       "dataHora": "2025-03-15 08:00",
@@ -74,7 +74,7 @@
       "milhasDevolvidas": 60
     },
     {
-      "id": 4,
+      "id": "4",
       "id_user": 104,
       "codigo": "RES004",
       "dataHora": "2025-03-28 16:30",
@@ -85,7 +85,7 @@
       "status": "CHECK-IN"
     },
     {
-      "id": 5,
+      "id": "5",
       "id_user": 101,
       "codigo": "RES005",
       "dataHora": "2025-03-30 09:00",
@@ -105,6 +105,14 @@
       "cpf": "1111111111111111",
       "email": "aliresrosa@gmail.com",
       "telefone": "41997140543",
+      "ativo": false
+    },
+    {
+      "id": "1745547112778",
+      "nome": "jose",
+      "cpf": "24222",
+      "email": "afsfsf",
+      "telefone": "34443",
       "ativo": false
     }
   ]
