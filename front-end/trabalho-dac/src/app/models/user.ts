@@ -1,12 +1,15 @@
-export interface User {
-  cpf: string;
-  nome: string;
-  email: string;
-  cep: string;
-  rua: string;
-  bairro: string;
-  cidade: string;
-  estado: string;
-  numero: string;
-  milhas: number;
+export class User {
+  constructor(
+    public id? : number,
+    public cpf?: string,
+    public nome?: string,
+    public email?: string,
+    public cep?: string,
+    public rua?: string,
+    public bairro?: string,
+    public cidade?: string,
+    public estado?: string,
+    public numero?: string,
+    public milhas: number = 0
+  ) {}
 }

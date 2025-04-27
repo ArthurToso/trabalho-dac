@@ -4,12 +4,13 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Funcionario } from '../../../models/funcionario.model';
 import { FuncionarioService } from '../../../services/funcionario.service';
+import { HeaderFuncionarioComponent } from "../header-funcionario/header-funcionario.component";
 
 
 @Component({
   selector: 'app-inserir-editar-funcionario',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, HeaderFuncionarioComponent],
   templateUrl: './inserir-editar-funcionario.component.html',
   styleUrl: './inserir-editar-funcionario.component.css'
 })

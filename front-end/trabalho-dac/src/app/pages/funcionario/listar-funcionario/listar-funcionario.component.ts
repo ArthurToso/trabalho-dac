@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Funcionario } from '../../../models/funcionario.model';
 import { FuncionarioService } from '../../../services/funcionario.service';
+import { HeaderFuncionarioComponent } from "../header-funcionario/header-funcionario.component";
 
 @Component({
   selector: 'app-listar-funcionario',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, HeaderFuncionarioComponent],
   templateUrl: './listar-funcionario.component.html',
   styleUrl: './listar-funcionario.component.css'
 })
@@ -16,7 +17,7 @@ export class ListarFuncionarioComponent {
 
     funcionarios : Funcionario[] = [];
 
-  
+    funcionarioLogado = 'João Silva'; //pegar esse dado qdo estiver autenticado !!! como???
   
     constructor(
       private funcService: FuncionarioService,

@@ -1,0 +1,57 @@
+<app-header-cliente></app-header-cliente>
+
+<main class="flex-1 p-8">
+
+  <div class="border max-w-[20%] text-center p-2 absolute rounded-lg   right-[16%] top-[14%] bg-green-500  text-white text-lg font-semibold font-mono tracking-widest">
+    Minhas: {{user.milhas}}
+  </div>
+
+  <section class="mb-8 text-center">
+    <h2 class="text-xl font-semibold mb-3">Reservas e Voos</h2>
+    <table class="table-auto mx-auto border-collapse border border-gray-300">
+      <thead>
+        <tr class="bg-gray-100">
+          <th class="border border-gray-300 p-2">Data/Hora</th>
+          <th class="border border-gray-300 p-2">Aeroporto Origem</th>
+          <th class="border border-gray-300 p-2">Aeroporto Destino</th>
+          <th class="border border-gray-300 p-2">Status</th>
+          <th class="border border-gray-300 p-2">Ações</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let reserva of reservas">
+          <td class="border border-gray-300 p-2">{{ reserva.dataHora }}</td>
+          <td class="border border-gray-300 p-2">{{ reserva.origem }}</td>
+          <td class="border border-gray-300 p-2">{{ reserva.destino }}</td>
+          <td class="border border-gray-300 p-2">{{ reserva.status }}</td>
+          <td class="border border-gray-300 p-2">
+            <div
+              class="grid gap-2"
+              [ngClass]="{
+                  'grid-cols-2': reserva?.status === 'CRIADA' || reserva?.status === 'CHECK-IN',
+                  
+                }"
+            >
+              <button
+                class="p-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
+                (click)="verReserva(reserva.id)"
+              >
+                Ver
+              </button>
+              <button
+                *ngIf="
+                  reserva?.status === 'CRIADA' || reserva?.status === 'CHECK-IN'
+                "
+                class="p-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+                (click)="cancelarReserva(reserva.id)"
+              >
+                Cancelar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
