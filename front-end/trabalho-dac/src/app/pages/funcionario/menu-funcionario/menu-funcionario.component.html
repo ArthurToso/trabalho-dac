@@ -15,29 +15,33 @@
             <th class="border border-gray-300 p-2">Opções</th>
           </tr>
         </thead>
-        @for (reserva of reservas; track reserva.id){
+        @for (voo of voos; track voo.id){
         <tbody>
           <tr>
-            <td class="border border-gray-300 p-2">{{ reserva.dataHora }}</td>
-            <td class="border border-gray-300 p-2">{{ reserva.origem }}</td>
-            <td class="border border-gray-300 p-2">{{ reserva.destino }}</td>
-            <td class="border border-gray-300 p-2">{{ reserva.status }}</td>
+            <td class="border border-gray-300 p-2">{{ voo.dataHora }}</td>
+            <td class="border border-gray-300 p-2">{{ voo.origem }}</td>
+            <td class="border border-gray-300 p-2">{{ voo.destino }}</td>
+            <td class="border border-gray-300 p-2">{{ voo.status }}</td>
 
             <td
               class="border border-gray-300 p-2 flex justify-center space-x-2"
             >
               <button
-                class="p-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
+                class="p-2 bg-green-500 text-white rounded hover:bg-green-600 transition  disabled:bg-gray-400 disabled:cursor-not-allowed"
+                [disabled]="voo.status !== 'CONFIRMADO'"
+                (click)="confirmar(voo.codigo_voo!)"
               >
                 Confirmar
               </button>
               <button
-                class="p-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+              [disabled]="voo.status !== 'CONFIRMADO'"
+                class="p-2 bg-red-500 text-white rounded hover:bg-red-600 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 Cancelar
               </button>
               <button
-                class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+              [disabled]="voo.status !== 'CONFIRMADO'"
+                class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 Realizar
               </button>

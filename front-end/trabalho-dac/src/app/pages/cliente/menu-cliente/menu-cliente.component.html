@@ -27,11 +27,8 @@
           <td class="border border-gray-300 p-2">{{ reserva.status }}</td>
           <td class="border border-gray-300 p-2">
             <div
-              class="grid gap-2"
-              [ngClass]="{
-                  'grid-cols-2': reserva?.status === 'CRIADA' || reserva?.status === 'CHECK-IN',
-                  
-                }"
+              class="grid grid-cols-2 gap-2"
+              
             >
               <button
                 class="p-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
@@ -40,11 +37,10 @@
                 Ver
               </button>
               <button
-                *ngIf="
-                  reserva?.status === 'CRIADA' || reserva?.status === 'CHECK-IN' 
-                "
-                class="p-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+                
+                class="p-2 bg-red-500 text-white rounded hover:bg-red-600 transition  disabled:bg-gray-400 disabled:cursor-not-allowed"
                 (click)="cancelarReserva(reserva.id)"
+                [disabled]="reserva.status !== 'CHECK-IN' && reserva.status !== 'CRIADA'"
               >
                 Cancelar
               </button>
