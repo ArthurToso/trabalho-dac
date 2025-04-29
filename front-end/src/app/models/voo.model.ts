@@ -1,7 +1,7 @@
 export class Voo {
   
   constructor(
-    public id?: string,
+    public id?: number,
     public dataHora?: string, 
     public origem?: string,
     public destino?: string,

@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class VooService {
+  getVooPorId(id: number) {
+    throw new Error('Method not implemented.');
+  }
 
   private apiUrl = 'http://localhost:3000/voos' // URL do json-server
   

@@ -1,0 +1,31 @@
+<div class="rounded-2xl shadow-lg w-full p-6">
+  <button
+      class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold focus:outline-none"
+      (click)="close()"
+    >
+      &times;
+    </button>
+  <div class="space-y-2 text-gray-700 text-left mb-6">
+    <h3 class="text-lg font-semibold mb-2">Informações do Voo</h3>
+    <p><strong>Código do Voo:</strong> {{ voo.codigo_voo }}</p>
+    <p><strong>Data/Hora:</strong> {{ voo.dataHora }}</p>
+    <p><strong>Origem:</strong> {{ voo.origem }}</p>
+    <p><strong>Destino:</strong> {{ voo.destino }}</p>
+    <p><strong>Status do Voo:</strong> {{ voo.status }}</p>
+  </div>
+
+  <div class="flex gap-1">
+    
+    <button
+      class="mt-6 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full"
+    >
+      Cancelar
+    </button>
+    <button
+      (click)="close()"
+      class="mt-6 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 w-full"
+    >
+      Fechar
+    </button>
+  </div>
+</div>

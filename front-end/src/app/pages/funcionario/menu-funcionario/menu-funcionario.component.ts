@@ -5,6 +5,7 @@ import { VooService } from '../../../services/voo.service';
 import { Voo } from '../../../models/voo.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalVerificarReservaComponent } from '../modal-verificar-reserva/modal-verificar-reserva.component';
+import { ModalCancelarComponent } from '../modal-cancelar/modal-cancelar.component';
 
 @Component({
   selector: 'app-menu-funcionario',
@@ -28,18 +29,28 @@ export class MenuFuncionarioComponent implements OnInit {
     });
   }
 
-  confirmar(codigo_voo : number): void {
-    console.log('codigo: ' +codigo_voo);
-    this.abrirModal(codigo_voo, ModalVerificarReservaComponent)
+  confirmar(voo : Voo): void {
+    const voo_local = this.voos.find((v) => v.id === voo.id);
+    this.abrirModal(voo, ModalVerificarReservaComponent)
     
   }
 
-  cancelar(id : number) : void{
+  cancelar(voo : Voo) : void{
+
+    const voo_local = this.voos.find((v) => v.id === voo.id);
+    console.log(voo_local)
+    if(voo_local){
+      this.abrirModal(voo_local, ModalCancelarComponent)
+      console.log("deu certo")
+      
+    }else{
+      console.log("erro: "+ voo_local)
+    }
 
   }
 
-  abrirModal(codigo_voo : number, componentModal: any) {
+  abrirModal(voo : Voo, componentModal: any) {
     const modalRef = this.modalService.open(componentModal);
-     modalRef.componentInstance.codigo = codigo_voo;
+     modalRef.componentInstance.voo = voo;
   }
 }
