@@ -4,23 +4,23 @@
   <form #formVoo="ngForm" class="space-y-5 my-8">
     <div class="grid grid-cols-3 gap-2">
       <div>
-        <label for="data_hora" class="text-sm font-medium text-gray-700 pr-4"
+        <label for="dataHora" class="text-sm font-medium text-gray-700 pr-4"
           >Data e Hora:</label
         >
         <input
           type="datetime-local"
-          id="data_hora"
-          name="data_hora"
+          id="dataHora"
+          name="dataHora"
           class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          [(ngModel)]="voo.data_hora"
-          #data_hora="ngModel"
+          [(ngModel)]="voo.dataHora"
+          #dataHora="ngModel"
           required
         />
         <div
           class="bg-red-300"
-          *ngIf="data_hora.errors && (data_hora.dirty || data_hora.touched)"
+          *ngIf="dataHora.errors && (dataHora.dirty || dataHora.touched)"
         >
-          <div [hidden]="!data_hora.errors['required']">
+          <div [hidden]="!dataHora.errors['required']">
             Informe a data e hora do voo.
           </div>
         </div>
@@ -95,7 +95,7 @@
         id="aeroporto_origem"
         name="aeroporto_origem"
         class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-        [(ngModel)]="voo.aeroporto_origem"
+        [(ngModel)]="voo.origem"
         #aeroporto_origem="ngModel"
         required
       />
@@ -123,7 +123,7 @@
         id="aeroporto_destino"
         name="aeroporto_destino"
         class="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-        [(ngModel)]="voo.aeroporto_destino"
+        [(ngModel)]="voo.destino"
         #aeroporto_destino="ngModel"
         required
       />

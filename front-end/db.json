@@ -10,7 +10,7 @@
       "numero": "1000",
       "cidade": "São Paulo",
       "estado": "SP",
-      "milhas": 140
+      "milhas": 280
     },
     {
       "id": "102",
@@ -47,7 +47,9 @@
       "destino": "Aeroporto Internacional do Rio de Janeiro",
       "valor": 350,
       "milhas": 70,
-      "status": "CANCELADA"
+      "status": "CANCELADA",
+      "id_voo": "VOO001",
+      "codigo_voo": "VOO001"
     },
     {
       "id": "2",
@@ -58,7 +60,9 @@
       "destino": "Aeroporto Internacional de Salvador",
       "valor": 450,
       "milhas": 90,
-      "status": "REALIZADA"
+      "status": "REALIZADA",
+      "id_voo": "VOO002",
+      "codigo_voo": "VOO002"
     },
     {
       "id": "3",
@@ -69,9 +73,11 @@
       "destino": "Aeroporto Internacional de Fortaleza",
       "valor": 300,
       "milhas": 60,
-      "status": "CANCELADA",
+      "status": "CHECK-IN",
       "canceladaEm": "2025-03-14 18:00",
-      "milhasDevolvidas": 60
+      "milhasDevolvidas": 60,
+      "id_voo": "VOO003",
+      "codigo_voo": "VOO003"
     },
     {
       "id": "4",
@@ -82,7 +88,9 @@
       "destino": "Aeroporto Internacional de Curitiba",
       "valor": 400,
       "milhas": 80,
-      "status": "CHECK-IN"
+      "status": "CHECK-IN",
+      "id_voo": "VOO004",
+      "codigo_voo": "VOO004"
     },
     {
       "id": "5",
@@ -95,7 +103,9 @@
       "milhas": 50,
       "status": "CANCELADA",
       "canceladaEm": "2025-03-29 20:00",
-      "milhasDevolvidas": 50
+      "milhasDevolvidas": 50,
+      "id_voo": "VOO005",
+      "codigo_voo": "VOO005"
     }
   ],
   "funcionario": [
@@ -121,77 +131,87 @@
       "codigo": "GRU",
       "nome": "Aeroporto Internacional de São Paulo/Guarulhos",
       "cidade": "Guarulhos",
-      "uf": "SP"
+      "uf": "SP",
+      "id": "f75c"
     },
     {
       "codigo": "GIG",
       "nome": "Aeroporto Internacional do Rio de Janeiro/Galeão",
       "cidade": "Rio de Janeiro",
-      "uf": "RJ"
+      "uf": "RJ",
+      "id": "4763"
     },
     {
       "codigo": "CWB",
       "nome": "Aeroporto Internacional de Curitiba",
       "cidade": "Curitiba",
-      "uf": "PR"
+      "uf": "PR",
+      "id": "9579"
     },
     {
       "codigo": "POA",
       "nome": "Aeroporto Internacional Salgado Filho",
       "cidade": "Porto Alegre",
-      "uf": "RS"
+      "uf": "RS",
+      "id": "59b8"
     }
   ],
-  "voos": [
+  "voos":[
     {
       "codigo_voo": "VOO001",
-      "data_hora": "2025-05-01T08:30:00",
-      "aeroporto_origem": "GRU",
-      "aeroporto_destino": "GIG",
+      "dataHora": "2025-05-01T08:30:00",
+      "origem": "GRU",
+      "destino": "GIG",
       "valor_passagem": 450,
       "poltronas_total": 180,
       "poltronas_ocupadas": 135,
-      "estado_voo": "Confirmado"
+      "status": "CONFIRMADO",
+      "id": 10382
     },
     {
       "codigo_voo": "VOO002",
-      "data_hora": "2025-05-01T10:00:00",
-      "aeroporto_origem": "GIG",
-      "aeroporto_destino": "CWB",
+      "dataHora": "2025-05-01T10:00:00",
+      "origem": "GIG",
+      "destino": "CWB",
       "valor_passagem": 380.5,
       "poltronas_total": 150,
       "poltronas_ocupadas": 150,
-      "estado_voo": "Lotado"
+      "status": "CANCELADO",
+      "id": 62775
     },
     {
       "codigo_voo": "VOO003",
-      "data_hora": "2025-05-01T12:15:00",
-      "aeroporto_origem": "CWB",
-      "aeroporto_destino": "POA",
+      "dataHora": "2025-05-01T12:15:00",
+      "origem": "CWB",
+      "destino": "POA",
       "valor_passagem": 299.99,
       "poltronas_total": 120,
       "poltronas_ocupadas": 45,
-      "estado_voo": "Confirmado"
+      "status": "CONFIRMADO",
+      "id": 36545
     },
     {
       "codigo_voo": "VOO004",
-      "data_hora": "2025-05-01T14:45:00",
-      "aeroporto_origem": "POA",
-      "aeroporto_destino": "GRU",
+      "dataHora": "2025-05-01T14:45:00",
+      "origem": "POA",
+      "destino": "GRU",
       "valor_passagem": 410.75,
       "poltronas_total": 200,
       "poltronas_ocupadas": 200,
-      "estado_voo": "Lotado"
+      "status": "REALIZADO",
+      "id": 41947
     },
     {
       "codigo_voo": "VOO005",
-      "data_hora": "2025-05-01T16:20:00",
-      "aeroporto_origem": "GIG",
-      "aeroporto_destino": "GRU",
+      "dataHora": "2025-05-01T16:20:00",
+      "origem": "GIG",
+      "destino": "GRU",
       "valor_passagem": 440,
       "poltronas_total": 160,
       "poltronas_ocupadas": 90,
-      "estado_voo": "Confirmado"
+      "status": "CONFIRMADO",
+      "id": 55423
     }
   ]
+  
 }
