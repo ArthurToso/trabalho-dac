@@ -1,47 +1,52 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { User } from '../../../models/user';
+import { UserService } from '../../../services/user.service';
 import { CepService } from '../../../services/cep.service';
-import { HttpClient } from '@angular/common/http';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [FormsModule, NgxMaskDirective],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css'],
-  providers: [provideNgxMask()],
+  styleUrls: ['./cadastro.component.css']
 })
-export class CadastroComponent {
-  cpf: string = '';
-  nome: string = '';
-  email: string = '';
-  cep: string = '';
-  rua: string = '';
-  bairro: string = '';
-  cidade: string = '';
-  estado: string = '';
-  numero: string = '';
+export class CadastroComponent implements OnInit {
 
-  constructor(private cepService: CepService, private http: HttpClient) {}
+  @ViewChild('formCadastro') formCadastro!: NgForm;
 
-  private apiUrl = 'http://localhost:3000/users'; // URL para salvar no db.json
+  novoUser: User = new User();
+  loading: boolean = false;
+  id: string = "";
+  novoUserCadastro: boolean = true;
 
-  buscarCep(event : MouseEvent) {
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private cepService: CepService,
+  
+  ) {}
+
+  ngOnInit(): void {
+    
+  }
+
+  buscarCep(event: MouseEvent) {
     event.preventDefault();
-    // console.log('Buscando CEP');
-    if (!this.cep || this.cep.length !== 8) {
+
+    if (!this.novoUser.cep || this.novoUser.cep.length !== 8) {
       alert('Por favor, informe um CEP válido.');
       return;
     }
 
-    this.cepService.buscarCep(this.cep).subscribe(
+    this.cepService.buscarCep(this.novoUser.cep).subscribe(
       (data) => {
-        this.rua = data.logradouro;
-        this.bairro = data.bairro;
-        this.cidade = data.localidade;
-        this.estado = data.uf;
+        this.novoUser.rua = data.logradouro;
+        this.novoUser.bairro = data.bairro;
+        this.novoUser.cidade = data.localidade;
+        this.novoUser.estado = data.uf;
       },
       (error) => {
         console.error('Erro ao buscar CEP', error);
@@ -50,46 +55,33 @@ export class CadastroComponent {
     );
   }
 
-  onSubmit() {
-    const cadastroData = {
-      cpf: this.cpf,
-      nome: this.nome,
-      email: this.email,
-      cep: this.cep,
-      rua: this.rua,
-      bairro: this.bairro,
-      cidade: this.cidade,
-      estado: this.estado,
-      numero: this.numero,
-    };
-    this.salvar(cadastroData).subscribe(
-      (response) => {
-        console.log('Usuário salvo com sucesso', response);
-        alert('Cadastro realizado com sucesso!');
-      },
-      (error) => {
-        console.error('Erro ao salvar usuário', error);
-        alert('Erro ao salvar usuário. Tente novamente.');
+  salvar(): void {
+    this.loading = true;
+
+    if (this.formCadastro.form.valid) {
+      if (this.novoUserCadastro) {
+        // Novo usuário
+        this.novoUser.id = new Date().getTime();
+        this.userService.salvar(this.novoUser).subscribe(
+          (usuario) => {
+            this.loading = false;
+            this.router.navigate(['/usuario/listar']);
+          },
+          (error) => {
+            this.loading = false;
+            console.error('Erro ao inserir o usuário', error);
+            alert('Erro ao inserir o usuário. Tente novamente.');
+          }
+        );
       }
-    );
-
-    this.limparCampos();
-  }
-
-  salvar(cadastroData: any): Observable<any> {
-    // console.log('Salvando novo usuário');
-    return this.http.post(this.apiUrl, cadastroData);
+    } else {
+      this.loading = false;
+      alert('Por favor, preencha todos os campos obrigatórios.');
+    }
   }
 
   limparCampos() {
-    this.cpf = '';
-    this.nome = '';
-    this.email = '';
-    this.cep = '';
-    this.rua = '';
-    this.bairro = '';
-    this.cidade = '';
-    this.estado = '';
-    this.numero = '';
+    this.novoUser = new User();
+    this.formCadastro.resetForm();
   }
 }

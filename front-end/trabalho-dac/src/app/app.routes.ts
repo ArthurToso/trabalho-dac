@@ -10,7 +10,7 @@ import { MenuFuncionarioComponent } from './pages/funcionario/menu-funcionario/m
 
 export const routes: Routes = [
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
-  { path: '**', redirectTo: '/signup', pathMatch: 'full' },
+  
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: CadastroComponent },
   { path: 'menu-cliente', component: MenuClienteComponent },
