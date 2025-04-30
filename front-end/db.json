@@ -10,7 +10,7 @@
       "numero": "1000",
       "cidade": "São Paulo",
       "estado": "SP",
-      "milhas": 280
+      "milhas": 340
     },
     {
       "id": "102",
@@ -73,7 +73,7 @@
       "destino": "Aeroporto Internacional de Fortaleza",
       "valor": 300,
       "milhas": 60,
-      "status": "CHECK-IN",
+      "status": "CANCELADA",
       "canceladaEm": "2025-03-14 18:00",
       "milhasDevolvidas": 60,
       "id_voo": "VOO003",
@@ -156,7 +156,7 @@
       "id": "59b8"
     }
   ],
-  "voos":[
+  "voos": [
     {
       "codigo_voo": "VOO001",
       "dataHora": "2025-05-01T08:30:00",
@@ -166,7 +166,7 @@
       "poltronas_total": 180,
       "poltronas_ocupadas": 135,
       "status": "CONFIRMADO",
-      "id": 10382
+      "id": "10382"
     },
     {
       "codigo_voo": "VOO002",
@@ -177,7 +177,7 @@
       "poltronas_total": 150,
       "poltronas_ocupadas": 150,
       "status": "CANCELADO",
-      "id": 62775
+      "id": "62775"
     },
     {
       "codigo_voo": "VOO003",
@@ -188,7 +188,7 @@
       "poltronas_total": 120,
       "poltronas_ocupadas": 45,
       "status": "CONFIRMADO",
-      "id": 36545
+      "id": "36545"
     },
     {
       "codigo_voo": "VOO004",
@@ -199,7 +199,7 @@
       "poltronas_total": 200,
       "poltronas_ocupadas": 200,
       "status": "REALIZADO",
-      "id": 41947
+      "id": "41947"
     },
     {
       "codigo_voo": "VOO005",
@@ -210,8 +210,7 @@
       "poltronas_total": 160,
       "poltronas_ocupadas": 90,
       "status": "CONFIRMADO",
-      "id": 55423
+      "id": "55423"
     }
   ]
-  
 }
