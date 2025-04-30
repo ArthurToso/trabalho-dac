@@ -6,6 +6,7 @@ import { Voo } from '../../../models/voo.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalVerificarReservaComponent } from '../modal-verificar-reserva/modal-verificar-reserva.component';
 import { ModalCancelarComponent } from '../modal-cancelar/modal-cancelar.component';
+import { ModalRealizarVooComponent } from '../modal-realizar-voo/modal-realizar-voo.component';
 
 @Component({
   selector: 'app-menu-funcionario',
@@ -33,6 +34,12 @@ export class MenuFuncionarioComponent implements OnInit {
     const voo_local = this.voos.find((v) => v.id === voo.id);
     this.abrirModal(voo, ModalVerificarReservaComponent)
     
+  }
+
+  realizar(voo : Voo) : void{
+    if(voo != undefined){
+      this.abrirModal(voo, ModalRealizarVooComponent)
+    }
   }
 
   cancelar(voo : Voo) : void{

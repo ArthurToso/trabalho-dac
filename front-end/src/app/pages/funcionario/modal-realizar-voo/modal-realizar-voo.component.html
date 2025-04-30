@@ -1,0 +1,30 @@
+<div
+  class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+>
+  <div class="relative bg-white rounded-2xl shadow-lg p-6 w-full max-w-sm">
+    <button
+      class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold focus:outline-none"
+      (click)="close()"
+    >
+      &times;
+    </button>
+    <div class="space-y-2 text-gray-700 text-left mb-6">
+      <h1 class="text-lg font-mono">Deseja  confirmar a realização  do voo: <strong class="bg-red-300 p-1 border rounded-md">{{voo.codigo_voo}}</strong>?</h1>
+    </div>
+
+    <div class="flex gap-1">
+      <button
+      (click)="confirmar()"
+        class="mt-6 bg-green9R-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full"
+      >
+        Confirmar
+      </button>
+      <button
+        (click)="close()"
+        class="mt-6 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 w-full"
+      >
+        Fechar
+      </button>
+    </div>
+  </div>
+</div>

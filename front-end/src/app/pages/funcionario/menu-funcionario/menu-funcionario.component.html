@@ -41,6 +41,7 @@
                 Cancelar
               </button>
               <button
+              (click)="realizar(voo)"
               [disabled]="voo.status !== 'CONFIRMADO'"
                 class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
