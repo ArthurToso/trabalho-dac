@@ -1,0 +1,37 @@
+<app-header-cliente></app-header-cliente>
+<div class="flex items-center justify-center pt-[5%]">
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-xl">
+    <h1 class="text-2xl font-bold mb-6 text-center">Compra de Milhas</h1>
+
+ 
+    <form  class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700"
+          >Valor em R$</label
+        >
+        <input
+          type="number"
+          [(ngModel)]="valor"
+          name="valor"
+          min="0"
+          step="5"
+          required
+          class="mt-1 block w-full rounded-md border-blue-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+        />
+
+        
+        <p  class="text-sm text-gray-400 mt-2 py-4 text-center font-mono font-bold">
+          Você receberá {{ valor/5 }} milha(s).
+        </p>
+      </div>
+
+      <button
+      (click)="comprarMilhas()"
+        
+        class="w-full bg-blue-600 text-white py-2 px-4 rounded-xl hover:bg-blue-700 transition"
+      >
+        Comprar Milhas
+      </button>
+    </form>
+  </div>
+</div>
