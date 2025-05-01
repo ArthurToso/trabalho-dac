@@ -212,5 +212,29 @@
       "status": "CONFIRMADO",
       "id": "55423"
     }
+  ],
+  "milhas" :[
+    {
+      "id_cliente": 101,
+      "dataHora": "2025-05-01T10:00:00",
+      "quantidade": 340,
+      "tipo": "ENTRADA",
+      "descricao": "COMPRA DE MILHAS"
+    },
+    {
+      "id_cliente": 102,
+      "dataHora": "2025-05-01T11:15:00",
+      "quantidade": 90,
+      "tipo": "ENTRADA",
+      "descricao": "COMPRA DE MILHAS"
+    },
+    {
+      "id_cliente": 104,
+      "dataHora": "2025-05-01T12:30:00",
+      "quantidade": 80,
+      "tipo": "ENTRADA",
+      "descricao": "COMPRA DE MILHAS"
+    }
   ]
+  
 }

@@ -28,7 +28,7 @@ export class MenuClienteComponent implements OnInit {
   
   id_user = 101; //trocar quando tiver autenticacao
 
-  reservaSelecionada: any = null;
+ 
 
   //para usar a biblioteca de modal
   constructor(private modalService: NgbModal, private serviceReserva : ReservaService, private serviceUser : UserService) {}

@@ -8,6 +8,7 @@ import { InserirEditarFuncionarioComponent } from './pages/funcionario/inserir-e
 import { InserirVooComponent } from './pages/funcionario/inserir-voo/inserir-voo.component';
 import { MenuFuncionarioComponent } from './pages/funcionario/menu-funcionario/menu-funcionario.component';
 import { ComprarMilhasComponent } from './pages/cliente/comprar-milhas/comprar-milhas.component';
+import { ExtratoMilhasComponent } from './pages/cliente/extrato-milhas/extrato-milhas.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
@@ -38,5 +39,13 @@ export const routes: Routes = [
   {
     path : 'comprar/milhas',
     component : ComprarMilhasComponent
+  },
+  {
+    path : 'clientes/{:id}/milhas',
+    component : ExtratoMilhasComponent
+  },
+  {
+    path : 'clientes/milhas',
+    component : ExtratoMilhasComponent
   }
 ];
