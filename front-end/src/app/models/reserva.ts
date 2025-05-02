@@ -1,6 +1,6 @@
 export class Reserva {
   constructor(
-    public id: number,
+    public id?: number,
     public id_user? : number,
     public codigo?: string,
     public dataHora?: string,

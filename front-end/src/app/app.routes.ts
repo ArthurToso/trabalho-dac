@@ -10,6 +10,7 @@ import { MenuFuncionarioComponent } from './pages/funcionario/menu-funcionario/m
 import { ComprarMilhasComponent } from './pages/cliente/comprar-milhas/comprar-milhas.component';
 import { ExtratoMilhasComponent } from './pages/cliente/extrato-milhas/extrato-milhas.component';
 import { EfetuarReservaComponent } from './pages/cliente/efetuar-reserva/efetuar-reserva.component';
+import { ConsultarReservaComponent } from './pages/cliente/consultar-reserva/consultar-reserva.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
@@ -52,5 +53,9 @@ export const routes: Routes = [
   {
     path : 'clientes/reservas',
     component : EfetuarReservaComponent
+  },
+  {
+    path : 'clientes/consultar',
+    component : ConsultarReservaComponent
   }
 ];
