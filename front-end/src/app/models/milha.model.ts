@@ -3,9 +3,9 @@ export class Milha {
         public id_cliente? : number,
         public dataHora? : string,
         public quantidade? : number,
-        public tipo : string = 'ENTRADA',
+        public tipo : 'ENTRADA' | 'SAIDA' = 'ENTRADA',
         public descricao? : string,
+        
     ){
-
     }
 }

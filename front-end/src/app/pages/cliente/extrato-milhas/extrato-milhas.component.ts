@@ -15,7 +15,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ExtratoMilhasComponent implements OnInit{
   
 
-  milhas : Milha[] | undefined
+  milhas: Milha[] = [];
+
 
   id : string = ''
 
@@ -26,7 +27,7 @@ export class ExtratoMilhasComponent implements OnInit{
     this.id = this.route.snapshot.params['id'];
 
 
-    this.milhasService.getMilhasPorUsuario(Number(this.id)).subscribe(m => {
+    this.milhasService.getMilhasPorUsuario(101).subscribe(m => {
       this.milhas = m;
     });
   }
