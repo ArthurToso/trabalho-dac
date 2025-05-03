@@ -4,7 +4,7 @@ import { ReservaService } from '../../../services/reserva.service';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/user';
 import { Router } from '@angular/router';
-import { ChangeDetectorRef } from '@angular/core';
+
 @Component({
   selector: 'app-modal-cancelar',
   standalone: true,

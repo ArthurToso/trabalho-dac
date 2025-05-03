@@ -24,4 +24,6 @@ export class ModalCancelarComponent {
   close() : void{
     this.modal.close()
   }
+  //funcao para Cancelar voo 
+  cancelar() : void {}
 }

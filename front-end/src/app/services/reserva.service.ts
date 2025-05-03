@@ -22,12 +22,16 @@ export class ReservaService {
   ) {}
 
    // Método para obter todas as reservas de um usuário
-   getReservasPorUsuario(userId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}?id_user=${userId}`);
+   getReservasPorUsuario(userId: number): Observable<Reserva[]> {
+    return this.http.get<Reserva[]>(`${this.apiUrl}?id_user=${userId}`);
   }
 
-  getReservas(): Observable<any[]>{
-    return this.http.get<any[]>(`${this.apiUrl}`);
+  getReservas(): Observable<Reserva[]>{
+    return this.http.get<Reserva[]>(`${this.apiUrl}`);
+  }
+
+  getReserva(id : string): Observable<Reserva[]>{
+    return this.http.get<Reserva[]>(`${this.apiUrl}/?codigo=${id}`);
   }
   
   cancelar(reserva : Reserva) : Observable<Reserva>{
