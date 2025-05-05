@@ -15,21 +15,30 @@ import { Reserva } from '../../../models/reserva';
 export class ConsultarReservaComponent implements OnInit {
   codigoReserva: string = '';
 
-  reserva: Reserva = new Reserva();
+  reservas: Reserva[] =[];
 
   mostrar = false;
+
+  reserva = new Reserva()
 
   constructor(private reservaService: ReservaService) {}
 
   ngOnInit(): void {
+    this.reservaService.getReservas().subscribe(r =>{
+      this.reservas = r;
+    })
     
   }
 
-  consultar(id : string) : void{
-    this.reservaService.getReserva(id).subscribe(r =>{
-      this.reserva = r[0];
+  consultar(codigo : string) : void{
+    let res = this.reservas.find(r => r.codigo == codigo)
+    if(res != undefined){
+      this.reserva = res;
       this.mostrar = true
-      console.log(r)
-    })
+    }else{
+      alert("Reserva não encontrada")
+    }
+    console.log(this.reservas)
+
   }
 }

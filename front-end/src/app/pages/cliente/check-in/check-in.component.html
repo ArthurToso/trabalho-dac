@@ -1,0 +1,56 @@
+<app-header-cliente></app-header-cliente>
+<div class="max-w-5xl mx-auto bg-white p-6 mt-10">
+  <h1 class="text-2xl font-bold text-gray-800 mb-4">
+    Check-in de Voos Programados nas Próximas 48 Horas
+  </h1>
+
+  <p class="text-gray-600 mb-6 rounded-sm bg-red-100 p-6">
+    Os voos abaixo estão programados para as próximas <strong>48 horas</strong>.
+    O <strong>check-in</strong> indica ciência da data/hora do voo, mas
+    <span class="font-semibold">não confirma o embarque</span>. Após o check-in,
+    sua reserva estará no estado
+    <span class="text-blue-600 font-bold">CHECK-IN</span>.
+  </p>
+
+  <div class="flex h-screen">
+    <main class="flex-1 p-4">
+      <section class="mb-8 text-center">
+        <table
+          class="table-auto mx-auto border-collapse border border-gray-300"
+        >
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="border border-gray-300 p-2">Data/Hora</th>
+              <th class="border border-gray-300 p-2">Aeroporto Origem</th>
+              <th class="border border-gray-300 p-2">Aeroporto Destino</th>
+              <th class="border border-gray-300 p-2">Status</th>
+              <th class="border border-gray-300 p-2">Opções</th>
+            </tr>
+          </thead>
+          @for (voo of voos; track voo.id){
+          <tbody>
+            <tr>
+              <td class="border border-gray-300 p-2">{{ voo.dataHora }}</td>
+              <td class="border border-gray-300 p-2">{{ voo.origem }}</td>
+              <td class="border border-gray-300 p-2">{{ voo.destino }}</td>
+              <td class="border border-gray-300 p-2">{{ voo.status }}</td>
+
+              <td
+                class="border border-gray-300 p-2 flex justify-center space-x-2"
+              >
+                <button
+                  class="p-2 bg-green-500 text-white rounded hover:bg-green-600 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+                  [disabled]="voo.status == 'CANCELADO'"
+                  (click)="fazerCheckin(voo)"
+                >
+                  Confirmar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          }
+        </table>
+      </section>
+    </main>
+  </div>
+</div>
