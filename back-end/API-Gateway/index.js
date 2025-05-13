@@ -10,15 +10,29 @@ var bodyParser = require('body-parser')
 var logger = require('morgan');
 const helmet = require('helmet');
 
+
+// Configurações do app
+app.use(logger('dev'));
+app.use(helmet());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+// Cria o servidor na porta 5000
+var server = http.createServer(app);
+server.listen(5000, ()=>{
+    console.log('api funcionando porta 5000')
+});
+
 //criacao dos parses
 //parse aplication/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended : false}))
 //parse aplication/json
 app.use(bodyParser.json())
 
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-//criacao dos proxies
-const usuarioServiceProxy = httpProxy('');
+//criacao dos proxies http dos services
+const usuarioServiceProxy = httpProxy('http://localhost:3000');
 
 //verificacao token jwt
 function verifyJWT(req, res, next){
@@ -56,19 +70,9 @@ app.post('/logout', function(req, res){
 
 //requisicoes ao servicos, ja autenticados
 app.get('/usuarios', verifyJWT, (req, res, next) => {
-usuariosServiceProxy(req, res, next);
+    usuarioServiceProxy(req, res, next);
 })
 
 //adc demais
 
 
-
-// Configurações do app
-app.use(logger('dev'));
-app.use(helmet());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-// Cria o servidor na porta 3000
-var server = http.createServer(app);
-server.listen(3000);
