@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class ModalCancelarComponent {
   @Input() reserva: any;
 
-  usuario: User = new User();
+  
 
   constructor(
     public activeModal: NgbActiveModal,

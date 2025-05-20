@@ -17,8 +17,8 @@ export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: CadastroComponent },
-  { path: 'menu-cliente', component: MenuClienteComponent },
+  { path: 'clientes', component: CadastroComponent },
+  { path: 'clientes/:id', component: MenuClienteComponent },
   {
     path: 'menu-funcionario',
     component: MenuFuncionarioComponent

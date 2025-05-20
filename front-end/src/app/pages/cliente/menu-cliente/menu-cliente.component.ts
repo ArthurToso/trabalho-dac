@@ -6,9 +6,11 @@ import { ModalCancelarComponent } from '../modal-cancelar/modal-cancelar.compone
 import { Reserva } from '../../../models/reserva';
 import { ReservaService } from '../../../services/reserva.service';
 import { UserService } from '../../../services/user.service';
-import { error } from 'console';
 import { User } from '../../../models/user';
 import { HeaderClienteComponent } from "../header-cliente/header-cliente.component";
+import { ActivatedRoute, Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-menu-cliente',
@@ -18,31 +20,48 @@ import { HeaderClienteComponent } from "../header-cliente/header-cliente.compone
   imports: [
     CommonModule,
     HeaderClienteComponent
-],
+  ],
 })
 export class MenuClienteComponent implements OnInit {
-  
-  reservas: Reserva[] = []; // Declaração da propriedade 'reservas'
 
-  user : User = new User();
-  
-  id_user = 101; //trocar quando tiver autenticacao
-
+  user? : User;
+  reservas: Reserva[] = [];
+  id_user!: string;
  
 
-  //para usar a biblioteca de modal
-  constructor(private modalService: NgbModal, private serviceReserva : ReservaService, private serviceUser : UserService) {}
+  constructor(
+    private modalService: NgbModal, 
+    private serviceReserva: ReservaService, 
+    private serviceUser: UserService,
+    private route : ActivatedRoute,
+    private router : Router
+  
+  ) {}
 
   ngOnInit(): void {
+  this.id_user = this.route.snapshot.params['id'];
+  // Verifique se o ID não é nulo
+  if (this.id_user) {
+  
+    console.log("ID do usuário:", this.id_user);
 
+    // Chama o serviço para obter os dados do usuário pelo ID
     this.serviceUser.getUserPorId(this.id_user).subscribe(user => {
-      this.user = user;
+      this.user = user;  // Agora você pode acessar as informações do usuário
+      console.log('Usuário encontrado:', this.user);
     });
 
-    this.serviceReserva.getReservasPorUsuario(this.id_user).subscribe(reservas =>{
-      this.reservas = reservas
+    // Chama o serviço para obter as reservas do usuário
+    this.serviceReserva.getReservasPorUsuario(this.id_user).subscribe(reservas => {
+      this.reservas = reservas;
+      console.log('Reservas encontradas:', this.reservas);
     });
+  } else {
+    console.error('Usuário não encontrado no localStorage');
+    // Se o ID não for encontrado, você pode redirecionar o usuário para a página de login
+    this.router.navigate(['/login']);
   }
+}
 
   verReserva(id: number): void {
     console.log('Ver reserva:', id);
@@ -66,5 +85,4 @@ export class MenuClienteComponent implements OnInit {
     const modalRef = this.modalService.open(componentModal);
     modalRef.componentInstance.reserva = reserva;
   }
-
 }
