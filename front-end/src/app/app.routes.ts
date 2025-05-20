@@ -20,11 +20,11 @@ export const routes: Routes = [
   { path: 'clientes', component: CadastroComponent },
   { path: 'clientes/:id', component: MenuClienteComponent },
   {
-    path: 'menu-funcionario',
+    path: 'funcionarios/:id',
     component: MenuFuncionarioComponent
   },
   {
-    path : 'funcionario/listar',
+    path : 'funcionarios',
     component : ListarFuncionarioComponent
   },
   {

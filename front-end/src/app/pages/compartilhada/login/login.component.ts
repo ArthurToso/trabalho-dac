@@ -14,7 +14,7 @@ import { User } from '../../../models/user';
 })
 export class LoginComponent implements OnInit {
   navigateToSignup() {
-    throw new Error('Method not implemented.');
+    this.router.navigate(['/clientes']);
   }
   @ViewChild('formLogin') formLogin!: NgForm; // Corrigido para garantir que a referência seja de um formulário
   login: Login = new Login();
@@ -27,10 +27,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    // Verifica se o usuário já está logado ao iniciar o componente
-    if (this.loginService.usuarioLogado) {
-      this.router.navigate(['/clientes/${id}']); // Se o usuário estiver logado, redireciona para a página principal
-    }
+    
   }
 
   logar(): void {
