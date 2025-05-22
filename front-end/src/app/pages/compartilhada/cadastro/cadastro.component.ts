@@ -17,7 +17,8 @@ export class CadastroComponent implements OnInit {
 
   @ViewChild('formCadastro') formCadastro!: NgForm;
 
-  novoUser: User = new User();
+  novoUser: User = {} as User;
+
   loading: boolean = false;
   id: string = "";
   novoUserCadastro: boolean = true;
@@ -61,11 +62,11 @@ export class CadastroComponent implements OnInit {
     if (this.formCadastro.form.valid) {
       if (this.novoUserCadastro) {
         // Novo usuário
-        this.novoUser.id = new Date().getTime();
+        this.novoUser.id = new Date().getTime().toString();
         this.userService.salvar(this.novoUser).subscribe(
           (usuario) => {
             this.loading = false;
-            this.router.navigate(['/usuario/listar']);
+            this.router.navigate(['/login']);
           },
           (error) => {
             this.loading = false;
@@ -81,7 +82,6 @@ export class CadastroComponent implements OnInit {
   }
 
   limparCampos() {
-    this.novoUser = new User();
     this.formCadastro.resetForm();
   }
 }

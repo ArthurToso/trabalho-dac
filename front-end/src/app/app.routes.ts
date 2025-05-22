@@ -17,14 +17,14 @@ export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: CadastroComponent },
-  { path: 'menu-cliente', component: MenuClienteComponent },
+  { path: 'clientes', component: CadastroComponent },
+  { path: 'clientes/:id', component: MenuClienteComponent },
   {
-    path: 'menu-funcionario',
+    path: 'funcionarios/:id',
     component: MenuFuncionarioComponent
   },
   {
-    path : 'funcionario/listar',
+    path : 'funcionarios',
     component : ListarFuncionarioComponent
   },
   {

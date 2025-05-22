@@ -22,7 +22,7 @@ export class ReservaService {
   ) {}
 
    // Método para obter todas as reservas de um usuário
-   getReservasPorUsuario(userId: number): Observable<Reserva[]> {
+   getReservasPorUsuario(userId: string): Observable<Reserva[]> {
     return this.http.get<Reserva[]>(`${this.apiUrl}?id_user=${userId}`);
   }
 

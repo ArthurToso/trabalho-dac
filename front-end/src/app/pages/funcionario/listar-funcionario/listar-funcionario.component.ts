@@ -17,7 +17,7 @@ export class ListarFuncionarioComponent {
 
     funcionarios : Funcionario[] = [];
 
-    funcionarioLogado = 'João Silva'; //pegar esse dado qdo estiver autenticado !!! como???
+    funcionarioLogado = 'Nome'; //pegar esse dado qdo estiver autenticado !!! como???
   
     constructor(
       private funcService: FuncionarioService,

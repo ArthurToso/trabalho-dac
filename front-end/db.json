@@ -1,28 +1,4 @@
 {
-  "usuarios": [
-{
-"id": 1,
-"nome": "Admin",
-"login": "admin",
-"senha": "admin",
-"perfil": "ADMIN"
-},
-{
-"id": 2,
-"nome": "Gerente",
-
-"login": "gerente",
-"senha": "gerente",
-"perfil": "GERENTE"
-},
-{
-"id": 3,
-"nome": "Func",
-"login": "func",
-"senha": "func",
-"perfil": "FUNC"
-}
-],
   "users": [
     {
       "id": "101",
@@ -34,7 +10,10 @@
       "numero": "1000",
       "cidade": "São Paulo",
       "estado": "SP",
-      "milhas": 340
+      "milhas": 340,
+      "login": "joao.silva",
+      "senha": "senha123",
+      "perfil": "CLIENTE"
     },
     {
       "id": "102",
@@ -46,7 +25,10 @@
       "numero": "250",
       "cidade": "Rio de Janeiro",
       "estado": "RJ",
-      "milhas": 90
+      "milhas": 90,
+      "login": "maria.oliveira",
+      "senha": "senha456",
+      "perfil": "CLIENTE"
     },
     {
       "id": "104",
@@ -58,7 +40,10 @@
       "numero": "500",
       "cidade": "Belo Horizonte",
       "estado": "MG",
-      "milhas": 80
+      "milhas": 80,
+      "login": "carlos.santos",
+      "senha": "senha789",
+      "perfil": "FUNCIONARIO"
     }
   ],
   "reservas": [

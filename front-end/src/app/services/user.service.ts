@@ -26,7 +26,7 @@ export class UserService {
   }
 
   // Método para buscar um usuário pelo ID
-  getUserPorId(id: number): Observable<User> {
+  getUserPorId(id: string): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/${id}`, this.httpOptions);
   }
 
