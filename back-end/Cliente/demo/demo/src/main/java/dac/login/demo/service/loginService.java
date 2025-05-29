@@ -1,7 +1,8 @@
 package dac.login.demo.service;
-package dac.login.demo.repository.LoginRepository;
+
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -9,12 +10,11 @@ import org.springframework.stereotype.Service;
 import dac.login.demo.model.Login;
 
 @Service
-
 public class loginService {
 
     private final LoginRepository loginRepository;
 
-    public LoginService(LoginRepository loginRepository) {
+    public loginService(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;
     }
 
@@ -27,7 +27,8 @@ public class loginService {
     }
 
     public interface LoginRepository extends JpaRepository<Login, Long> {
-    Optional<Login> findByEmailAndPassword(String email, String password);
+        Optional<Login> findByEmailAndPassword(String email, String password);
+    }
 }
 
-}
+

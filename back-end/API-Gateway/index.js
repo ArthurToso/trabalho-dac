@@ -33,6 +33,12 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 //criacao dos proxies http dos services
 const usuarioServiceProxy = httpProxy('http://localhost:3000');
+//colocar as url dos microservico como configurado em cada um
+const authServiceProxy = httpProxy('');
+const vooServiceProxy = httpProxy('');
+
+
+//
 
 //verificacao token jwt
 function verifyJWT(req, res, next){
