@@ -17,7 +17,7 @@
           required
         />
         <div
-          class="bg-red-300"
+          class="bg-red-100 border border-red-400 text-red-700 p-3 rounded-md mt-2 shadow-md flex items-center"
           *ngIf="dataHora.errors && (dataHora.dirty || dataHora.touched)"
         >
           <div [hidden]="!dataHora.errors['required']">
@@ -43,7 +43,7 @@
           required
         />
         <div
-          class="bg-red-300"
+          class="bg-red-100 border border-red-400 text-red-700 p-3 rounded-md mt-2 shadow-md flex items-center"
           *ngIf="
             valor_passagem.errors &&
             (valor_passagem.dirty || valor_passagem.touched)
@@ -71,14 +71,14 @@
           required
         />
         <div
-          class="bg-red-300"
+          class="bg-red-100 border border-red-400 text-red-700 p-3 rounded-md mt-2 shadow-md flex items-center"
           *ngIf="
             poltronas_total.errors &&
             (poltronas_total.dirty || poltronas_total.touched)
           "
         >
           <div [hidden]="!poltronas_total.errors['required']">
-            Informe a quantidade total de poltronas.
+            Informe a quantidade  de poltronas.
           </div>
         </div>
       </div>
@@ -100,7 +100,7 @@
         required
       />
       <div
-        class="bg-red-300"
+        class="bg-red-100 border border-red-400 text-red-700 p-3 rounded-md mt-2 shadow-md flex items-center"
         *ngIf="
           aeroporto_origem.errors &&
           (aeroporto_origem.dirty || aeroporto_origem.touched)
@@ -128,7 +128,7 @@
         required
       />
       <div
-        class="bg-red-300"
+        class="bg-red-100 border border-red-400 text-red-700 p-3 rounded-md mt-2 shadow-md flex items-center"
         *ngIf="
           aeroporto_destino.errors &&
           (aeroporto_destino.dirty || aeroporto_destino.touched)
