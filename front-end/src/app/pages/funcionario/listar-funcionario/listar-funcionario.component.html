@@ -1,65 +1,64 @@
-<app-header-funcionario [nomeFuncionario]="funcionarioLogado"></app-header-funcionario>
+<div class="">
+  <app-header-funcionario [nomeFuncionario]="funcionarioLogado">
+  </app-header-funcionario>
 
-<div class="grid m-4 mt-8">
-    <table
-      class="border-collapse border border-slate-500 border-spacing-2 text-center"
-    >
-      <tbody>
-        <tr class="bg-blue-500">
-          <th class="border border-slate-600 py-2 px-8">Nome</th>
-          <th class="border border-slate-600 py-2 px-8">Telefone</th>
-          <th class="border border-slate-600 py-2 px-8">CPF</th>
-          <th class="border border-slate-600 py-2 px-8">E-mail</th>
-          <th class="border border-slate-600 py-2 px-8">Ativo</th>
-          <th class="border border-slate-600 py-2 px-8 bg-white">
-            <a
-              [routerLink]="['/funcionario/novo']"
-              title="Novo"
-              alt="Novo"
-              class="h-10 px-6 font-semibold rounded-md bg-green-800 hover:bg-black text-white p-2"
+  <main class="flex-1 p-8">
+    <section class="mb-8 text-center">
+      <h2 class="text-xl font-semibold mb-3">Lista de Funcionarios</h2>
+      <table class="table-auto mx-auto border-collapse border border-gray-300">
+        <thead>
+          <tr class="bg-gray-100">
+            <th class="border border-gray-300 p-2">Nome</th>
+            <th class="border border-gray-300 p-2">Telefone</th>
+            <th class="border border-gray-300 p-2">CPF</th>
+            <th class="border border-gray-300 p-2">E-mail</th>
+            <th class="border border-gray-300 p-2">Ativo</th>
+            <th class="border border-gray-300 p-2">
+              <a
+                [routerLink]="['/funcionario/novo']"
+                title="Novo"
+                alt="Novo"
+                class="h-10 px-6 font-semibold rounded-md bg-green-800 hover:bg-black text-white p-2"
+              >
+                <i aria-hidden="true"></i> Novo
+              </a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let func of funcionarios">
+            <td class="border border-gray-300 p-2">{{ func.nome }}</td>
+            <td class="border border-gray-300 p-2">{{ func.telefone }}</td>
+            <td class="border border-gray-300 p-2">
+              {{ func.cpf }}
+            </td>
+            <td class="border border-gray-300 p-2">{{ func.email }}</td>
+            <td class="border border-gray-300 p-2">{{ func.ativo }}</td>
+            <td
+              class="border border-gray-300 p-2 flex justify-center space-x-2"
             >
-              <i aria-hidden="true"></i> Novo
-            </a>
-          </th>
-        </tr>
-        <tr *ngFor="let func of funcionarios">
-          <td class="border border-slate-600 py-2 px-8">{{ func.nome }}</td>
-          <td class="border border-slate-600 py-2 px-8">{{ func.telefone}}</td>
-          <td class="border border-slate-600 py-2 px-8">
-            {{ func.cpf }}
-          </td>
-          <td class="border border-slate-600 py-2 px-8">{{ func.email}}</td>
-          <td class="border border-slate-600 py-2 px-8">{{ func.ativo}}</td>
-          <td
-            class="border border-slate-600 py-2 px-8"
-            class="text-center"
-            style="width: 300px"
-          >
-            <div>
-              
               <a
                 [routerLink]="['/funcionario/editar', func.id]"
                 title="Editar"
                 alt="Editar"
-                class="h-10 px-6 font-semibold rounded-md hover:bg-black hover:text-white p-2"
+                class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 <i aria-hidden="true"></i> Editar
               </a>
               <a
                 href="#"
-                class="h-10 px-6 font-semibold rounded-md hover:bg-black hover:text-white p-2"
+                class="p-2 bg-red-500 text-white rounded hover:bg-red-600 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
                 (click)="remover($event, func)"
                 title="Remover"
                 alt="Remover"
               >
                 <i aria-hidden="true"></i> Remover
               </a>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <p *ngIf="funcionarios.length === 0">Nenhuma funcionario cadastrado.</p>
-  </div>
-  
-
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <p *ngIf="funcionarios.length === 0">Nenhuma funcionario cadastrado.</p>
+</div>
