@@ -10,15 +10,15 @@ export class UserService {
 
   apiUrl = 'http://localhost:3000/users'; // URL do json-server
 
-   //opcoes http (header)
-   httpOptions = {
-    headers : new HttpHeaders({
-      'Content-Type' : 'application/json'
+  //opcoes http (header)
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
     })
   }
 
   constructor(
-    private http : HttpClient) {}
+    private http: HttpClient) { }
 
   // Método para salvar um novo usuário
   salvar(user: User): Observable<User> {
@@ -30,9 +30,15 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl}/${id}`, this.httpOptions);
   }
 
-  devolverMilhas(milhas: number, user : User): Observable<User> {
+  devolverMilhas(milhas: number, user: User): Observable<User> {
     user.milhas += milhas;
     return this.http.patch<User>(`http://localhost:3000/users/${user.id}`, JSON.stringify(user), this.httpOptions)
 
-}
+  }
+
+  enviarEmailSenha(email: string, senha: string) {
+    // Chama o endpoint do backend responsável por enviar o e-mail
+    return this.http.post('/api/enviar-email-senha', { email, senha });
+  }
+
 }
