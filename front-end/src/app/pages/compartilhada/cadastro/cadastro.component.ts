@@ -27,11 +27,11 @@ export class CadastroComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private cepService: CepService,
-  
+
   ) {}
 
   ngOnInit(): void {
-    
+
   }
 
   buscarCep(event: MouseEvent) {
@@ -62,11 +62,20 @@ export class CadastroComponent implements OnInit {
     if (this.formCadastro.form.valid) {
       if (this.novoUserCadastro) {
         // Novo usuário
+        // Gerar senha aleatória de 4 dígitos
+        const senha = Math.floor(1000 + Math.random() * 9000).toString();
+        this.novoUser.senha = senha;
+
         this.novoUser.id = new Date().getTime().toString();
         this.userService.salvar(this.novoUser).subscribe(
           (usuario) => {
-            this.loading = false;
-            this.router.navigate(['/login']);
+            // Chamar serviço para enviar o e-mail
+            this.userService.enviarEmailSenha(this.novoUser.email, senha).subscribe(
+              () => {
+                this.loading = false;
+                alert('Usuário cadastrado! A senha foi enviada por e-mail.');
+                this.router.navigate(['/login']);
+              },
           },
           (error) => {
             this.loading = false;
