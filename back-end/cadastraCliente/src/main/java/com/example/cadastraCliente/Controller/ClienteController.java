@@ -1,6 +1,6 @@
 package com.example.cadastraCliente.Controller;
 
-import com.example.cadastraCliente.Cliente.Cliente;
+import com.example.cadastraCliente.model.Cliente;
 import com.example.cadastraCliente.Services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +18,7 @@ public class ClienteController {
     private ClienteService service;
 
     @PostMapping
-    public ResponseEntity<Cliente> criarCliente ( @RequestBody Cliente cliente) {
+    public ResponseEntity<Cliente> criarCliente (@RequestBody Cliente cliente) {
         Cliente salvo = service.cadastrarCliente(cliente);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
     }

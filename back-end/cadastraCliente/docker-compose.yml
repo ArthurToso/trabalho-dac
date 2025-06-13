@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # Serviço do Banco de Dados PostgreSQL
+  postgres-db:
+    image: postgres:14-alpine  # Imagem oficial do Postgres, versão 14 (leve)
+    container_name: postgres-db
+    restart: always # Reinicia o container automaticamente se ele parar
+
+    # Configuração do banco de dados
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+
+    # Mapeia a porta 5432 do container para a porta 5432 da sua máquina
+    ports:
+      - "5433:5432"
+
+    # Garante que os dados do banco sejam salvos na sua máquina (persistência)
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+# O Docker cria um "volume" para guardar os dados de forma segura
+volumes:
+  postgres-data:

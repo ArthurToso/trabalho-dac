@@ -1,25 +1,27 @@
-package com.example.cadastraCliente.Cliente;
+package com.example.cadastraCliente.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.*;
 
-@Document(collection = "clientes")
+@Entity
+@Table(name = "clientes")
 public class Cliente {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String cpf;
     private String email;
     private String nome;
     private int saldoMilhas;
+    @Embedded
     private Endereco endereco;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
