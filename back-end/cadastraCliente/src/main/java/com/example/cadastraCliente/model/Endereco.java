@@ -1,5 +1,8 @@
-package com.example.cadastraCliente.Cliente;
+package com.example.cadastraCliente.model;
 
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public class Endereco {
     private String cep;
     private String uf;

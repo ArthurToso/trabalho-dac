@@ -34,9 +34,9 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 //criacao dos proxies http dos services
 const usuarioServiceProxy = httpProxy('http://localhost:3000');
 //colocar as url dos microservico como configurado em cada um
-const authServiceProxy = httpProxy('');
-const vooServiceProxy = httpProxy('');
-
+//const authServiceProxy = httpProxy('');
+//const vooServiceProxy = httpProxy('');
+const clienteServiceProxy = httpProxy('http://localhost:8080')
 
 //
 
@@ -81,4 +81,9 @@ app.get('/usuarios', verifyJWT, (req, res, next) => {
 
 //adc demais
 
+//clientes
+//Cadastro inicial sem autorizacao JWT (publico)
+app.post('/clientes', (req, res, next) => {
+    clienteServiceProxy(req, res, next);
+});
 
