@@ -9,7 +9,7 @@
   <form
     #formCadastro="ngForm"
     class="bg-white rounded-lg p-6 justify-center m-auto mt-6"
-   
+    (ngSubmit)="salvar()"
   >
     <!-- Usando grid para dividir os inputs em três colunas -->
     <div class="grid grid-cols-3 gap-4">

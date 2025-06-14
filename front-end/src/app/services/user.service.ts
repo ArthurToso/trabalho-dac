@@ -8,7 +8,9 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-  apiUrl = 'http://localhost:3000/users'; // URL do json-server
+  // apiUrl = 'http://localhost:3000/users'; // URL do json-server
+
+  apiUrl = 'http://localhost:5000'// URL do Gateway
 
   //opcoes http (header)
   httpOptions = {
@@ -22,7 +24,7 @@ export class UserService {
 
   // Método para salvar um novo usuário
   salvar(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, JSON.stringify(user), this.httpOptions);
+    return this.http.post<User>('${this.apiUrl}/clientes', JSON.stringify(user), this.httpOptions);
   }
 
   // Método para buscar um usuário pelo ID

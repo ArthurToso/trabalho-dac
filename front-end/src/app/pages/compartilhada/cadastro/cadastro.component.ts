@@ -70,13 +70,13 @@ export class CadastroComponent implements OnInit {
         this.userService.salvar(this.novoUser).subscribe(
           (usuario) => {
             // Chamar serviço para enviar o e-mail
-            this.userService.enviarEmailSenha(this.novoUser.email, senha).subscribe(
+            this.userService.enviarEmailSenha(this.novoUser.email!, senha).subscribe(
               () => {
                 this.loading = false;
                 alert('Usuário cadastrado! A senha foi enviada por e-mail.');
                 this.router.navigate(['/login']);
               },
-          },
+        )},
           (error) => {
             this.loading = false;
             console.error('Erro ao inserir o usuário', error);
